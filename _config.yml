@@ -1,0 +1,11 @@
+# GitHub Pages Jekyll Configuration
+title: Remember Who
+description: The privacy-first personal CRM that helps you remember the people who matter.
+theme: jekyll-theme-minimal
+
+# Custom domain
+url: https://remember-who.com
+
+# Exclude unnecessary files from the build
+exclude:
+  - README.md

@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remember Who - Never forget a face, a name, or a conversation</title>
+  <meta name="description" content="The privacy-first personal CRM that helps you remember the people who matter. AI-powered call assistance, on-device storage, zero tracking.">
+  <meta property="og:title" content="Remember Who - Private Personal CRM">
+  <meta property="og:description" content="Never forget a face. Or a name. Or a conversation. The privacy-first personal CRM.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal: #4A9B9B;
+      --teal-dark: #3A8080;
+      --teal-light: #E8F4F4;
+      --lavender: #B8A9D4;
+      --lavender-light: #F0ECF6;
+      --cream: #FDFBF7;
+      --white: #FFFFFF;
+      --gray-50: #F9FAFB;
+      --gray-100: #F3F4F6;
+      --gray-200: #E5E7EB;
+      --gray-400: #9CA3AF;
+      --gray-500: #6B7280;
+      --gray-600: #4B5563;
+      --gray-700: #374151;
+      --gray-800: #1F2937;
+      --gray-900: #111827;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.04);
+      --radius: 12px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+    }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--gray-700);
+      background: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--gray-900);
+      line-height: 1.2;
+    }
+
+    a { color: var(--teal); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--teal-dark); }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== Scroll Animations ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-up.delay-1 { transition-delay: 0.1s; }
+    .fade-up.delay-2 { transition-delay: 0.2s; }
+    .fade-up.delay-3 { transition-delay: 0.3s; }
+    .fade-up.delay-4 { transition-delay: 0.4s; }
+    .fade-up.delay-5 { transition-delay: 0.5s; }
+
+    /* ===== Navigation ===== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-100);
+      transition: box-shadow 0.3s;
+    }
+    .nav.scrolled { box-shadow: var(--shadow-md); }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--gray-900);
+      text-decoration: none;
+    }
+    .nav-logo:hover { color: var(--gray-900); }
+
+    .nav-logo-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--teal), var(--lavender));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 16px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--gray-600);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+
+    .nav-cta {
+      background: var(--teal);
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover {
+      background: var(--teal-dark);
+      color: white !important;
+      transform: translateY(-1px);
+    }
+
+    /* Mobile nav */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--gray-700);
+      margin: 6px 0;
+      transition: transform 0.3s, opacity 0.3s;
+      border-radius: 2px;
+    }
+    .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(12px);
+        padding: 16px 24px 24px;
+        gap: 4px;
+        border-bottom: 1px solid var(--gray-100);
+        box-shadow: var(--shadow-lg);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a {
+        display: block;
+        padding: 12px 0;
+        font-size: 1.05rem;
+      }
+      .nav-cta {
+        display: inline-block;
+        margin-top: 8px;
+        text-align: center;
+      }
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      padding: 140px 0 80px;
+      background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--teal), var(--lavender));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--gray-500);
+      margin-bottom: 32px;
+      max-width: 500px;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--gray-900);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: var(--gray-800);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .btn-secondary {
+      background: var(--white);
+      color: var(--gray-700);
+      border: 2px solid var(--gray-200);
+    }
+    .btn-secondary:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+      transform: translateY(-2px);
+    }
+    .btn svg { width: 20px; height: 20px; }
+
+    .hero-phone {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Phone mockup */
+    .phone-frame {
+      position: relative;
+      width: 280px;
+      border-radius: 36px;
+      background: var(--gray-900);
+      padding: 12px;
+      box-shadow: var(--shadow-xl), 0 0 0 1px rgba(0,0,0,0.05);
+    }
+    .phone-frame img {
+      border-radius: 26px;
+      width: 100%;
+      display: block;
+    }
+    .phone-frame::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 24px;
+      background: var(--gray-900);
+      border-radius: 0 0 14px 14px;
+      z-index: 2;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+      .hero-subtitle { margin-left: auto; margin-right: auto; }
+      .hero-buttons { justify-content: center; }
+      .hero-phone { order: -1; }
+      .phone-frame { width: 240px; }
+    }
+
+    /* ===== Features Section ===== */
+    .features {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .section-label {
+      display: inline-block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--gray-500);
+      max-width: 600px;
+      margin-bottom: 60px;
+    }
+    .text-center .section-subtitle { margin-left: auto; margin-right: auto; }
+    .text-center { text-align: center; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--gray-50);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid transparent;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--gray-100);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .feature-icon.teal { background: var(--teal-light); }
+    .feature-icon.lavender { background: var(--lavender-light); }
+
+    .feature-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .feature-card p {
+      font-size: 0.95rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    .feature-screenshot {
+      margin-top: 20px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .feature-screenshot img {
+      width: 100%;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .features-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== Feature Spotlight ===== */
+    .spotlight {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+
+    .spotlight-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+    .spotlight-row:last-child { margin-bottom: 0; }
+    .spotlight-row.reverse .spotlight-image { order: -1; }
+
+    .spotlight-image .phone-frame {
+      width: 260px;
+      margin: 0 auto;
+    }
+
+    .spotlight-text h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .spotlight-text p {
+      font-size: 1.05rem;
+      color: var(--gray-500);
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .spotlight-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .spotlight-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--gray-600);
+    }
+    .spotlight-list li .check {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      background: var(--teal-light);
+      color: var(--teal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    @media (max-width: 900px) {
+      .spotlight-row { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+      .spotlight-row.reverse .spotlight-image { order: 0; }
+      .spotlight-image .phone-frame { width: 220px; }
+      .spotlight-list { align-items: center; }
+    }
+
+    /* ===== How It Works ===== */
+    .how-it-works {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      color: white;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 4px 12px rgba(74, 155, 155, 0.3);
+    }
+
+    .step h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .step p {
+      font-size: 0.95rem;
+      color: var(--gray-500);
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    /* Connector lines between steps */
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(50% + 40px);
+      width: calc(100% - 80px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal-light), var(--lavender-light));
+      z-index: 0;
+    }
+
+    @media (max-width: 768px) {
+      .steps { grid-template-columns: 1fr; gap: 48px; }
+      .step:not(:last-child)::after { display: none; }
+    }
+
+    /* ===== Privacy Section ===== */
+    .privacy-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--gray-900) 0%, #1a2a3a 100%);
+      color: white;
+    }
+    .privacy-section .section-label { color: var(--lavender); }
+    .privacy-section .section-title { color: white; }
+    .privacy-section .section-subtitle { color: rgba(255,255,255,0.6); }
+
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .privacy-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: background 0.3s;
+    }
+    .privacy-card:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .privacy-card-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .privacy-card h3 {
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .privacy-card p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      .privacy-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== Pricing Section ===== */
+    .pricing {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+
+    .pricing-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 48px 40px;
+      text-align: center;
+      box-shadow: var(--shadow-xl);
+      border: 2px solid var(--teal);
+      position: relative;
+    }
+
+    .pricing-popular {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--teal);
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 20px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pricing-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 4px;
+    }
+    .pricing-card .pricing-desc {
+      color: var(--gray-500);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    .pricing-amount {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: 4px;
+    }
+    .pricing-amount sup {
+      font-size: 1.5rem;
+      vertical-align: super;
+      margin-right: 2px;
+    }
+    .pricing-period {
+      color: var(--gray-400);
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 32px;
+    }
+    .pricing-features li {
+      padding: 8px 0;
+      font-size: 0.95rem;
+      color: var(--gray-600);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .pricing-features li .pf-check {
+      color: var(--teal);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .pricing-card .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* Competitor comparison */
+    .pricing-compare {
+      background: var(--gray-50);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+    }
+    .pricing-compare h3 {
+      font-size: 1.2rem;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .compare-table {
+      width: 100%;
+    }
+    .compare-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .compare-row:last-child { border-bottom: none; }
+    .compare-name {
+      font-weight: 500;
+      color: var(--gray-600);
+      font-size: 0.95rem;
+    }
+    .compare-price {
+      font-weight: 600;
+      color: var(--gray-400);
+      font-size: 0.95rem;
+    }
+    .compare-row.highlight {
+      background: var(--teal-light);
+      margin: 0 -16px;
+      padding: 12px 16px;
+      border-radius: var(--radius);
+      border-bottom: none;
+    }
+    .compare-row.highlight .compare-name {
+      color: var(--teal-dark);
+      font-weight: 700;
+    }
+    .compare-row.highlight .compare-price {
+      color: var(--teal-dark);
+      font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+      .pricing-wrapper { grid-template-columns: 1fr; max-width: 460px; }
+    }
+
+    /* ===== Final CTA ===== */
+    .final-cta {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--teal-light) 0%, var(--lavender-light) 100%);
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .final-cta p {
+      font-size: 1.15rem;
+      color: var(--gray-500);
+      margin-bottom: 36px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-cta .hero-buttons {
+      justify-content: center;
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      padding: 48px 0 32px;
+      background: var(--gray-900);
+      color: rgba(255,255,255,0.5);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: white;
+      margin-bottom: 8px;
+    }
+    .footer-brand .nav-logo-icon {
+      width: 28px;
+      height: 28px;
+      font-size: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: white; }
+
+    .footer-bottom {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.85rem;
+    }
+    .footer-bottom a {
+      color: rgba(255,255,255,0.4);
+    }
+    .footer-bottom a:hover { color: white; }
+
+    /* ===== Utility ===== */
+    @media (max-width: 480px) {
+      .btn { padding: 12px 20px; font-size: 0.9rem; }
+      .hero { padding: 120px 0 60px; }
+      .features, .spotlight, .how-it-works, .privacy-section, .pricing, .final-cta {
+        padding: 70px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        Remember Who
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#download" class="nav-cta">Download</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge fade-up">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Privacy-first personal CRM
+          </div>
+          <h1 class="fade-up delay-1">
+            Never forget a face.<br>
+            Or a name.<br>
+            Or a <span class="highlight">conversation.</span>
+          </h1>
+          <p class="hero-subtitle fade-up delay-2">
+            The privacy-first personal CRM that helps you remember the people who matter. All data stays on your device.
+          </p>
+          <div class="hero-buttons fade-up delay-3">
+            <a href="#download" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              App Store
+            </a>
+            <a href="#download" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.68c.27.16.6.18.89.06l11.26-5.34L4.1 8.56l-.92 14.42c-.04.28.08.56.28.7h-.28zm1.1-16.88L15.52 17.9l5.72-2.71c.42-.2.68-.64.68-1.12 0-.48-.26-.92-.68-1.12L4.28 6.8zm14.7 8.7L7.22 3.74l-2.64-1.5c-.33-.19-.74-.16-1.04.06L15.52 12.5l3.46 3z"/></svg>
+              Google Play
+            </a>
+          </div>
+        </div>
+        <div class="hero-phone fade-up delay-2">
+          <div class="phone-frame">
+            <img src="images/dashboard.png" alt="Remember Who app dashboard showing birthdays, meetings, follow-ups and recent activity" loading="eager">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Features Grid ===== -->
+  <section class="features" id="features">
+    <div class="container text-center">
+      <span class="section-label fade-up">Features</span>
+      <h2 class="section-title fade-up delay-1">Everything you need to remember everyone</h2>
+      <p class="section-subtitle fade-up delay-2">From phone calls to family details, Remember Who keeps track so you don't have to.</p>
+
+      <div class="features-grid">
+        <div class="feature-card fade-up">
+          <div class="feature-icon teal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h3>Call Assist</h3>
+          <p>See quick facts and conversation starters before every call. Never wing an important call again.</p>
+          <div class="feature-screenshot">
+            <img src="images/call.png" alt="Call assist showing quick facts and conversation starters" loading="lazy">
+          </div>
+        </div>
+
+        <div class="feature-card fade-up delay-1">
+          <div class="feature-icon lavender">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3>Rich Contact Profiles</h3>
+          <p>Family details, interests, interaction history, and follow-ups all in one place.</p>
+          <div class="feature-screenshot">
+            <img src="images/contact.png" alt="Contact profile with family, location, and interaction history" loading="lazy">
+          </div>
+        </div>
+
+        <div class="feature-card fade-up delay-2">
+          <div class="feature-icon teal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+          </div>
+          <h3>Map View</h3>
+          <p>See your contacts on a map. Get reminded when you're near someone you know.</p>
+          <div class="feature-screenshot">
+            <img src="images/maps.png" alt="Map view showing contacts pinned on a map" loading="lazy">
+          </div>
+        </div>
+
+        <div class="feature-card fade-up delay-3">
+          <div class="feature-icon lavender">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h.01"/><path d="M17 7h.01"/><path d="M7 17h.01"/><path d="M17 17h.01"/><path d="M7 12h10"/><path d="M12 7v10"/></svg>
+          </div>
+          <h3>Business Cards & QR</h3>
+          <p>Scan business cards with OCR or share your own contact info via QR code.</p>
+          <div class="feature-screenshot">
+            <img src="images/mycard.png" alt="QR code sharing screen for contact information" loading="lazy">
+          </div>
+        </div>
+
+        <div class="feature-card fade-up delay-4">
+          <div class="feature-icon teal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </div>
+          <h3>Smart Dashboard</h3>
+          <p>Birthdays, follow-ups, meetings, and recent activity at a glance. Start every day prepared.</p>
+        </div>
+
+        <div class="feature-card fade-up delay-5">
+          <div class="feature-icon lavender">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Privacy-First</h3>
+          <p>All data stays on your device. No accounts required. No tracking. No ads. Ever.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Feature Spotlight: Call Assist ===== -->
+  <section class="spotlight">
+    <div class="container">
+      <div class="spotlight-row">
+        <div class="spotlight-text fade-up">
+          <span class="section-label">Killer Feature</span>
+          <h3>Never wing another important call</h3>
+          <p>When a call comes in, Remember Who shows you everything you need: family details, conversation starters, and what you discussed last time.</p>
+          <ul class="spotlight-list">
+            <li><span class="check">&#10003;</span> Quick facts about their family and interests</li>
+            <li><span class="check">&#10003;</span> Personalized conversation starters</li>
+            <li><span class="check">&#10003;</span> One-tap call recording with AI transcription</li>
+            <li><span class="check">&#10003;</span> Automatic summaries and action items</li>
+          </ul>
+        </div>
+        <div class="spotlight-image fade-up delay-2">
+          <div class="phone-frame">
+            <img src="images/call.png" alt="Call assist overlay with quick facts and conversation starters" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="spotlight-row reverse">
+        <div class="spotlight-text fade-up">
+          <span class="section-label">Your People</span>
+          <h3>Remember the whole person, not just their name</h3>
+          <p>Rich profiles that go beyond phone number and email. Track family members, birthdays, interests, where you met, and every interaction.</p>
+          <ul class="spotlight-list">
+            <li><span class="check">&#10003;</span> Partner, kids, and family birthday tracking</li>
+            <li><span class="check">&#10003;</span> Interests, hobbies, and personal notes</li>
+            <li><span class="check">&#10003;</span> Interaction timeline with call logs</li>
+            <li><span class="check">&#10003;</span> Smart follow-up reminders</li>
+          </ul>
+        </div>
+        <div class="spotlight-image fade-up delay-2">
+          <div class="phone-frame">
+            <img src="images/contact.png" alt="Contact detail screen with family info and interaction history" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== How It Works ===== -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container text-center">
+      <span class="section-label fade-up">How It Works</span>
+      <h2 class="section-title fade-up delay-1">Three steps to a better memory</h2>
+
+      <div class="steps">
+        <div class="step fade-up">
+          <div class="step-number">1</div>
+          <h3>Add people you meet</h3>
+          <p>Scan a business card, import from contacts, or add manually. Personal or business mode adapts to how you know them.</p>
+        </div>
+        <div class="step fade-up delay-2">
+          <div class="step-number">2</div>
+          <h3>Log calls, notes & details</h3>
+          <p>Record calls with AI transcription. Add family details, interests, and notes. Set follow-up reminders so no one slips through the cracks.</p>
+        </div>
+        <div class="step fade-up delay-4">
+          <div class="step-number">3</div>
+          <h3>Never forget anyone again</h3>
+          <p>Get context before every call. Birthday reminders. Location alerts when you're nearby. Your memory, supercharged.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Privacy Section ===== -->
+  <section class="privacy-section" id="privacy">
+    <div class="container text-center">
+      <span class="section-label fade-up">Privacy Promise</span>
+      <h2 class="section-title fade-up delay-1">Your relationships are yours.</h2>
+      <p class="section-subtitle fade-up delay-2">Not ours. Not anyone's. We built Remember Who to prove that great software doesn't need your data.</p>
+
+      <div class="privacy-grid" style="text-align: left; margin-top: 48px;">
+        <div class="privacy-card fade-up">
+          <div class="privacy-card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3>Local-First Storage</h3>
+          <p>All data is stored on your device by default. Nothing leaves your phone unless you explicitly enable cloud backup.</p>
+        </div>
+        <div class="privacy-card fade-up delay-1">
+          <div class="privacy-card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h3>On-Device AI</h3>
+          <p>Call transcription and smart features run directly on your phone. Your conversations never touch our servers.</p>
+        </div>
+        <div class="privacy-card fade-up delay-2">
+          <div class="privacy-card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+          </div>
+          <h3>Zero Tracking</h3>
+          <p>No analytics. No telemetry. No ads. No third-party SDKs watching what you do. We literally can't see your data.</p>
+        </div>
+        <div class="privacy-card fade-up delay-3">
+          <div class="privacy-card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          </div>
+          <h3>Optional Cloud Backup</h3>
+          <p>If you want multi-device sync, cloud backup is available. It's encrypted and completely optional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Pricing Section ===== -->
+  <section class="pricing" id="pricing">
+    <div class="container text-center">
+      <span class="section-label fade-up">Pricing</span>
+      <h2 class="section-title fade-up delay-1">Buy once. Own forever.</h2>
+      <p class="section-subtitle fade-up delay-2">No subscriptions. No hidden fees. No "premium tier." Just one fair price for the full app.</p>
+
+      <div class="pricing-wrapper" style="margin-top: 48px;">
+        <div class="pricing-card fade-up">
+          <div class="pricing-popular">Best Value</div>
+          <h3>Remember Who</h3>
+          <p class="pricing-desc">Full app, lifetime access</p>
+          <div class="pricing-amount"><sup>$</sup>19<span style="font-size:1.8rem">.99</span></div>
+          <div class="pricing-period">One-time purchase</div>
+          <ul class="pricing-features">
+            <li><span class="pf-check">&#10003;</span> Unlimited contacts</li>
+            <li><span class="pf-check">&#10003;</span> Call assist with AI transcription</li>
+            <li><span class="pf-check">&#10003;</span> Business card scanner</li>
+            <li><span class="pf-check">&#10003;</span> Map view & geo-reminders</li>
+            <li><span class="pf-check">&#10003;</span> QR code sharing</li>
+            <li><span class="pf-check">&#10003;</span> Calendar integration</li>
+            <li><span class="pf-check">&#10003;</span> Cloud backup (optional)</li>
+            <li><span class="pf-check">&#10003;</span> All future updates included</li>
+          </ul>
+          <a href="#download" class="btn btn-primary">Get Remember Who</a>
+        </div>
+
+        <div class="pricing-compare fade-up delay-2">
+          <h3>Compare the alternatives</h3>
+          <div class="compare-table">
+            <div class="compare-row highlight">
+              <span class="compare-name">Remember Who</span>
+              <span class="compare-price">$19.99 once</span>
+            </div>
+            <div class="compare-row">
+              <span class="compare-name">Dex</span>
+              <span class="compare-price">$12/month</span>
+            </div>
+            <div class="compare-row">
+              <span class="compare-name">Clay</span>
+              <span class="compare-price">$10/month</span>
+            </div>
+            <div class="compare-row">
+              <span class="compare-name">Covve</span>
+              <span class="compare-price">$9.99/month</span>
+            </div>
+            <div class="compare-row">
+              <span class="compare-name">Monica</span>
+              <span class="compare-price">$9/month</span>
+            </div>
+            <div class="compare-row">
+              <span class="compare-name">UpHabit</span>
+              <span class="compare-price">$30/year</span>
+            </div>
+          </div>
+          <p style="margin-top: 20px; font-size: 0.85rem; color: var(--gray-400); text-align: center;">Others charge monthly. You'd pay $120+/year for Dex. Remember Who is a one-time purchase.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Final CTA ===== -->
+  <section class="final-cta" id="download">
+    <div class="container">
+      <h2 class="fade-up">Ready to remember everyone?</h2>
+      <p class="fade-up delay-1">Download Remember Who and never forget a name, a face, or a conversation again.</p>
+      <div class="hero-buttons fade-up delay-2">
+        <a href="#" class="btn btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Download for iOS
+        </a>
+        <a href="#" class="btn btn-secondary" style="border-color: var(--gray-700); color: var(--gray-700);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.68c.27.16.6.18.89.06l11.26-5.34L4.1 8.56l-.92 14.42c-.04.28.08.56.28.7h-.28zm1.1-16.88L15.52 17.9l5.72-2.71c.42-.2.68-.64.68-1.12 0-.48-.26-.92-.68-1.12L4.28 6.8zm14.7 8.7L7.22 3.74l-2.64-1.5c-.33-.19-.74-.16-1.04.06L15.52 12.5l3.46 3z"/></svg>
+          Download for Android
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">
+            <div class="nav-logo-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            Remember Who
+          </div>
+          <p style="font-size: 0.9rem; max-width: 300px;">The privacy-first personal CRM. Your relationships, your data, your device.</p>
+        </div>
+        <ul class="footer-links">
+          <li><a href="privacy-policy">Privacy Policy</a></li>
+          <li><a href="support">Support</a></li>
+          <li><a href="delete-account">Delete Account</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Lost Pines Creative LLC</span>
+        <a href="mailto:support@rememberwho.io">support@rememberwho.io</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JavaScript ===== -->
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    // Mobile menu toggle
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('active');
+      links.classList.toggle('open');
+    });
+    // Close mobile menu on link click
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        toggle.classList.remove('active');
+        links.classList.remove('open');
+      });
+    });
+
+    // Scroll-triggered fade-up animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
