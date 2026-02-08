@@ -4,7 +4,7 @@ description: The privacy-first personal CRM that helps you remember the people w
 theme: jekyll-theme-minimal
 
 # Custom domain
-url: https://remember-who.com
+url: https://rememberwho.app
 
 # Exclude unnecessary files from the build
 exclude:
