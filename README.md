@@ -24,7 +24,7 @@ A personal relationship management app that helps you remember the important det
 
 ## Contact
 
-Questions or feedback? Email us at support@rememberwho.io
+Questions or feedback? Email us at support@rememberwho.app
 
 ---
 

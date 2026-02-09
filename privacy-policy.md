@@ -69,7 +69,7 @@ We may update this policy occasionally. We'll notify you of significant changes 
 
 Questions about privacy? Contact us:
 
-**Email:** support@rememberwho.io
+**Email:** support@rememberwho.app
 
 ---
 

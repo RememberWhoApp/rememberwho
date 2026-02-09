@@ -70,7 +70,7 @@ These Terms are governed by and construed in accordance with the laws of the Sta
 
 Questions about these Terms? Contact us:
 
-**Email:** support@rememberwho.io
+**Email:** support@rememberwho.app
 
 ---
 

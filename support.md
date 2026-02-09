@@ -50,13 +50,13 @@ Remember Who uses Google Sign-In, so there's no separate password. Just sign in 
 
 Still need help? We're here for you.
 
-**Email:** support@rememberwho.io
+**Email:** support@rememberwho.app
 
 We typically respond within 24-48 hours.
 
 ## Report a Bug
 
-Found a bug? Email us at support@rememberwho.io with:
+Found a bug? Email us at support@rememberwho.app with:
 
 - What you were trying to do
 - What happened instead

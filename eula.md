@@ -63,7 +63,7 @@ This Agreement constitutes the entire agreement between you and the Licensor reg
 
 Questions about this Agreement? Contact us:
 
-**Email:** support@rememberwho.io
+**Email:** support@rememberwho.app
 
 ---
 

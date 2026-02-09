@@ -37,7 +37,7 @@ If you never created a cloud account and used the app in local-only mode, simply
 
 If you're having trouble deleting your account or have questions, contact us:
 
-**Email:** support@rememberwho.io
+**Email:** support@rememberwho.app
 
 ---
 
