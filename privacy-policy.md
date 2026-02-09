@@ -75,4 +75,4 @@ Questions about privacy? Contact us:
 
 [Back to Home](./)
 
-© 2025 Lost Pines Creative LLC
+© 2026 Lost Pines Creative LLC
