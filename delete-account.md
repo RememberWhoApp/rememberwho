@@ -43,4 +43,4 @@ If you're having trouble deleting your account or have questions, contact us:
 
 [Back to Home](./)
 
-© 2025 Lost Pines Creative LLC
+© 2026 [Lost Pines Creative LLC](https://lostpinescreative.com/)

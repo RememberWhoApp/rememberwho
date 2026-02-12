@@ -66,4 +66,4 @@ Found a bug? Email us at support@rememberwho.app with:
 
 [Back to Home](./)
 
-© 2025 Lost Pines Creative LLC
+© 2026 [Lost Pines Creative LLC](https://lostpinescreative.com/)
