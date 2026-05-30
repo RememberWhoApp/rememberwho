@@ -627,21 +627,26 @@
 
     .pricing-wrapper {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
       align-items: start;
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
     .pricing-card {
       background: white;
       border-radius: var(--radius-lg);
-      padding: 48px 40px;
+      padding: 36px 28px;
       text-align: center;
-      box-shadow: var(--shadow-xl);
-      border: 2px solid var(--teal);
+      box-shadow: var(--shadow-md);
+      border: 2px solid var(--gray-200);
       position: relative;
+    }
+    .pricing-card.featured {
+      border-color: var(--teal);
+      box-shadow: var(--shadow-xl);
+      transform: scale(1.04);
     }
 
     .pricing-popular {
@@ -760,8 +765,9 @@
       font-weight: 700;
     }
 
-    @media (max-width: 768px) {
-      .pricing-wrapper { grid-template-columns: 1fr; max-width: 460px; }
+    @media (max-width: 900px) {
+      .pricing-wrapper { grid-template-columns: 1fr; max-width: 420px; }
+      .pricing-card.featured { transform: none; }
     }
 
     /* ===== Final CTA ===== */
@@ -1102,58 +1108,91 @@
   <section class="pricing" id="pricing">
     <div class="container text-center">
       <span class="section-label fade-up">Pricing</span>
-      <h2 class="section-title fade-up delay-1">Buy once. Own forever.</h2>
-      <p class="section-subtitle fade-up delay-2">No subscriptions. No hidden fees. Just one fair price for the full app.</p>
+      <h2 class="section-title fade-up delay-1">Simple, honest pricing.</h2>
+      <p class="section-subtitle fade-up delay-2">Choose the plan that works for you. Every plan unlocks all Pro features.</p>
 
       <div class="pricing-wrapper" style="margin-top: 48px;">
         <div class="pricing-card fade-up">
+          <h3>Monthly</h3>
+          <p class="pricing-desc">Try Pro risk-free</p>
+          <div class="pricing-amount"><sup>$</sup>2<span style="font-size:1.8rem">.99</span></div>
+          <div class="pricing-period">per month</div>
+          <ul class="pricing-features">
+            <li><span class="pf-check">&#10003;</span> All Pro features</li>
+            <li><span class="pf-check">&#10003;</span> Call assist & transcription</li>
+            <li><span class="pf-check">&#10003;</span> Business card scanner</li>
+            <li><span class="pf-check">&#10003;</span> Calendar integration</li>
+            <li><span class="pf-check">&#10003;</span> Cloud backup</li>
+            <li><span class="pf-check">&#10003;</span> Cancel anytime</li>
+          </ul>
+          <a href="#download" class="btn btn-secondary">Get Started</a>
+        </div>
+
+        <div class="pricing-card featured fade-up delay-1">
           <div class="pricing-popular">Best Value</div>
-          <h3>Remember Who</h3>
-          <p class="pricing-desc">Full app, lifetime access</p>
+          <h3>Lifetime</h3>
+          <p class="pricing-desc">Pay once, own forever</p>
           <div class="pricing-amount"><sup>$</sup>9<span style="font-size:1.8rem">.99</span></div>
           <div class="pricing-period">One-time purchase</div>
           <ul class="pricing-features">
-            <li><span class="pf-check">&#10003;</span> Unlimited contacts</li>
-            <li><span class="pf-check">&#10003;</span> Call assist with AI transcription</li>
+            <li><span class="pf-check">&#10003;</span> All Pro features</li>
+            <li><span class="pf-check">&#10003;</span> Call assist & transcription</li>
             <li><span class="pf-check">&#10003;</span> Business card scanner</li>
-            <li><span class="pf-check">&#10003;</span> Map view & geo-reminders</li>
-            <li><span class="pf-check">&#10003;</span> QR code sharing</li>
             <li><span class="pf-check">&#10003;</span> Calendar integration</li>
-            <li><span class="pf-check">&#10003;</span> Cloud backup (optional)</li>
+            <li><span class="pf-check">&#10003;</span> Cloud backup</li>
             <li><span class="pf-check">&#10003;</span> All future updates included</li>
           </ul>
-          <a href="#download" class="btn btn-primary">Get Remember Who</a>
+          <a href="#download" class="btn btn-primary">Get Lifetime Access</a>
         </div>
 
-        <div class="pricing-compare fade-up delay-2">
-          <h3>Compare the alternatives</h3>
+        <div class="pricing-card fade-up delay-2">
+          <h3>Yearly</h3>
+          <p class="pricing-desc">Save vs. monthly</p>
+          <div class="pricing-amount"><sup>$</sup>19<span style="font-size:1.8rem">.99</span></div>
+          <div class="pricing-period">per year</div>
+          <ul class="pricing-features">
+            <li><span class="pf-check">&#10003;</span> All Pro features</li>
+            <li><span class="pf-check">&#10003;</span> Call assist & transcription</li>
+            <li><span class="pf-check">&#10003;</span> Business card scanner</li>
+            <li><span class="pf-check">&#10003;</span> Calendar integration</li>
+            <li><span class="pf-check">&#10003;</span> Cloud backup</li>
+            <li><span class="pf-check">&#10003;</span> Save 44% vs. monthly</li>
+          </ul>
+          <a href="#download" class="btn btn-secondary">Get Yearly</a>
+        </div>
+      </div>
+
+      <!-- Competitor comparison -->
+      <div style="max-width: 500px; margin: 48px auto 0;">
+        <div class="pricing-compare fade-up delay-3">
+          <h3>Why others cost more</h3>
           <div class="compare-table">
             <div class="compare-row highlight">
               <span class="compare-name">Remember Who</span>
-              <span class="compare-price">$9.99 once</span>
+              <span class="compare-price">$9.99 lifetime</span>
             </div>
             <div class="compare-row">
               <span class="compare-name">Dex</span>
-              <span class="compare-price">$12/month</span>
+              <span class="compare-price">$12-20/mo</span>
             </div>
             <div class="compare-row">
-              <span class="compare-name">Clay</span>
-              <span class="compare-price">$10/month</span>
+              <span class="compare-name">Cloze</span>
+              <span class="compare-price">$17-42/mo</span>
             </div>
             <div class="compare-row">
               <span class="compare-name">Covve</span>
-              <span class="compare-price">$9.99/month</span>
+              <span class="compare-price">$12.99/mo</span>
             </div>
             <div class="compare-row">
-              <span class="compare-name">Monica</span>
-              <span class="compare-price">$9/month</span>
+              <span class="compare-name">Folk</span>
+              <span class="compare-price">$20-40/mo</span>
             </div>
             <div class="compare-row">
               <span class="compare-name">UpHabit</span>
-              <span class="compare-price">$30/year</span>
+              <span class="compare-price">$19.99/mo</span>
             </div>
           </div>
-          <p style="margin-top: 20px; font-size: 0.85rem; color: var(--gray-400); text-align: center;">Others charge monthly. You'd pay $120+/year for Dex. Remember Who is a one-time purchase — launch price.</p>
+          <p style="margin-top: 20px; font-size: 0.85rem; color: var(--gray-400); text-align: center;">They charge monthly because they store your data. We don't need to — your data stays on your device.</p>
         </div>
       </div>
     </div>
