@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last updated:** January 26, 2025
+**Last updated:** May 30, 2026
 
 Remember Who ("we", "our", or "us") is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your information.
 
@@ -45,7 +45,12 @@ Remember Who ("we", "our", or "us") is committed to protecting your privacy. Thi
 
 We only share data with:
 
-- **Service Providers:** Supabase (cloud storage), Sentry (crash reporting)
+- **Service Providers:**
+  - **Supabase** — cloud storage for optional account backup
+  - **Sentry** — anonymous crash reporting to improve app stability
+  - **RevenueCat** — in-app purchase processing and subscription management
+  - **Google** — calendar integration only (Google Sign-In is used solely for calendar access, not for account creation or login)
+  - **Microsoft** — calendar integration only (Microsoft OAuth is used solely for Outlook calendar access)
 - **Legal Requirements:** If required by law
 
 ## Your Rights
