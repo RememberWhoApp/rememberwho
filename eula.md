@@ -1,6 +1,6 @@
 # End User License Agreement (EULA)
 
-**Last updated:** February 8, 2026
+**Last updated:** June 8, 2026
 
 This End User License Agreement ("Agreement") is a legal agreement between you ("User") and Lost Pines Creative LLC ("Licensor") for the use of the Remember Who mobile application ("App"). By installing or using the App, you agree to the terms of this Agreement.
 
@@ -10,7 +10,13 @@ The Licensor grants you a limited, non-exclusive, non-transferable, revocable li
 
 ## 2. Purchase Terms
 
-The App is available as a one-time purchase for $19.99 USD. This purchase grants you a perpetual license to use the App, including all future updates, subject to the terms of this Agreement.
+The App is available as a free download with optional paid upgrades. Premium features ("Remember Who Pro") are available through the following plans:
+
+- **Monthly subscription:** $9.99 USD/month
+- **Annual subscription:** $79.99 USD/year
+- **Lifetime purchase:** $149.99 USD (one-time, perpetual access)
+
+Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period. You may manage or cancel subscriptions through your device's app store settings. The lifetime purchase grants perpetual access to all Pro features, including future updates, subject to the terms of this Agreement.
 
 ## 3. Restrictions
 
@@ -33,7 +39,7 @@ All data you create within the App (contacts, notes, photos, recordings) remains
 
 ## 6. Updates
 
-The Licensor may release updates to the App from time to time. Updates may include bug fixes, new features, or security patches. All updates are included in your one-time purchase and are subject to this Agreement.
+The Licensor may release updates to the App from time to time. Updates may include bug fixes, new features, or security patches. Updates are included with an active subscription or lifetime purchase and are subject to this Agreement.
 
 ## 7. Third-Party Components
 

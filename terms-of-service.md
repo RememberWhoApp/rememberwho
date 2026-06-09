@@ -1,6 +1,6 @@
 # Terms of Service
 
-**Last updated:** February 8, 2026
+**Last updated:** June 8, 2026
 
 Welcome to Remember Who. These Terms of Service ("Terms") govern your use of the Remember Who mobile application ("App") provided by Lost Pines Creative LLC ("we", "our", or "us"). By downloading, installing, or using the App, you agree to be bound by these Terms.
 

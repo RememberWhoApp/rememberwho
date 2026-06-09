@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last updated:** May 30, 2026
+**Last updated:** June 8, 2026
 
 Remember Who ("we", "our", or "us") is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your information.
 
@@ -11,6 +11,8 @@ Remember Who ("we", "our", or "us") is committed to protecting your privacy. Thi
 - **Contact Information:** Names, phone numbers, emails, and other details you enter about your contacts
 - **Notes & Interactions:** Notes, meeting records, and conversation summaries you create
 - **Photos:** Profile photos you add to contacts
+- **Voice Recordings:** Audio recordings you make for voice notes (processed on-device or via OpenAI Whisper API if cloud transcription is enabled)
+- **Business Card Scans:** Images of business cards you scan (processed on-device using Google ML Kit OCR)
 - **Account Information:** Email address when you create a cloud account (optional)
 
 ### Information Collected Automatically
@@ -22,7 +24,10 @@ Remember Who ("we", "our", or "us") is committed to protecting your privacy. Thi
 ## How We Use Your Information
 
 - **Core Functionality:** Store and display your contacts and notes
-- **Reminders:** Send birthday and follow-up notifications
+- **Voice Transcription:** Convert voice recordings to text (on-device or cloud)
+- **Business Card Scanning:** Extract contact details from business card images (on-device only)
+- **Calendar Prep:** Match calendar attendees to your contacts for meeting preparation
+- **Reminders:** Send birthday, follow-up, and reconnect notifications
 - **Cloud Backup:** Sync your data across devices (if enabled)
 - **App Improvement:** Fix bugs and improve performance
 
@@ -49,7 +54,8 @@ We only share data with:
   - **Supabase** — cloud storage for optional account backup
   - **Sentry** — anonymous crash reporting to improve app stability
   - **RevenueCat** — in-app purchase processing and subscription management
-  - **Google** — calendar integration only (Google Sign-In is used solely for calendar access, not for account creation or login)
+  - **OpenAI** — cloud voice transcription only (if you enable cloud mode; audio is sent to OpenAI's Whisper API and not stored)
+  - **Google** — calendar integration (Google Sign-In is used solely for calendar access, not for account creation or login) and on-device OCR (Google ML Kit, no data leaves the device)
   - **Microsoft** — calendar integration only (Microsoft OAuth is used solely for Outlook calendar access)
 - **Legal Requirements:** If required by law
 

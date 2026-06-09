@@ -16,21 +16,30 @@ No. You can use Remember Who entirely offline with local storage. Cloud backup i
 ### Cloud & Backup
 
 **How do I enable cloud backup?**
-Go to Settings → Account → Sign in with Google. Your data will sync automatically.
+Go to Settings → Account & Backup → Sign In / Create Account. You can sign in with email and password. Your data will sync automatically once signed in.
 
 **Is my data encrypted?**
-Yes. Data is encrypted on your device and during transfer to our servers.
+Yes. All sensitive data is encrypted on your device using AES-256 encryption and during transfer to our servers via TLS.
 
 **Can I use the app on multiple devices?**
 Yes, with cloud backup enabled, your data syncs across all your devices.
 
 ### Features
 
+**How do voice notes work?**
+Tap the microphone icon on a contact to record a voice note. Transcription can run on-device (free, using Whisper) or via cloud (requires OpenAI API key). This is a Pro feature.
+
+**How do I scan a business card?**
+When adding or editing a contact, use the business card scanner to photograph a card. The app extracts name, phone, email, company, and title automatically using on-device OCR. This is a Pro feature.
+
+**How does Calendar Prep work?**
+Connect your Google, Outlook, or Apple calendar in Settings. The app matches meeting attendees to your contacts and shows preparation cards before upcoming meetings. This is a Pro feature.
+
 **How do location reminders work?**
-Add a location to a contact, enable geo-reminders in Settings, and you'll get notified when you're nearby.
+Add a location to a contact via the Map tab or the contact's detail page, enable geo-reminders in Settings, and you'll get notified when you're nearby.
 
 **Can I import contacts from my phone?**
-Yes. When adding a new contact, tap "Import from Phone Contacts" to select existing contacts.
+Yes. When adding a new contact, tap "Import from Phone" to open the native contact picker and select a contact.
 
 **How do I scan a QR code?**
 Go to Settings → My Card → Scan Their Card, or use the QR scanner from the new contact screen.
@@ -38,13 +47,13 @@ Go to Settings → My Card → Scan Their Card, or use the QR scanner from the n
 ### Account & Data
 
 **How do I delete my account?**
-Go to Settings → Account → Delete Account. See our [deletion page](./delete-account.md) for details.
+Go to Settings → Account & Backup → Delete Account. See our [deletion page](./delete-account.md) for details.
 
 **How do I export my data?**
-Go to Settings → Data → Export Data to download a copy of all your information.
+Go to Settings → Data & About → Export Data to download a copy of all your information.
 
 **I forgot my password**
-Remember Who uses Google Sign-In, so there's no separate password. Just sign in with your Google account.
+On the sign-in screen, tap "Forgot Password?" and enter your email. You'll receive a link to reset your password.
 
 ## Contact Us
 
