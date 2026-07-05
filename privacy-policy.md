@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last updated:** June 8, 2026
+**Last updated:** June 22, 2026
 
 Remember Who ("we", "our", or "us") is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your information.
 
@@ -44,6 +44,30 @@ Remember Who ("we", "our", or "us") is committed to protecting your privacy. Thi
 - Cloud data is encrypted in transit (TLS) and at rest
 - We use Supabase for secure cloud storage
 
+## Third-Party AI Services
+
+Remember Who offers an optional cloud transcription feature powered by OpenAI's Whisper API. This feature is **disabled by default** and requires your explicit consent before any data is sent.
+
+### What data is sent
+
+When you enable cloud transcription, your **audio recordings** (voice notes) are sent to OpenAI's servers for speech-to-text processing. No other personal data — such as contacts, notes, or account information — is sent to OpenAI.
+
+### Who receives the data
+
+Audio recordings are sent to **OpenAI** ([openai.com](https://openai.com)) via their Whisper speech-to-text API.
+
+### How we obtain your consent
+
+Before any audio is sent to OpenAI, the app presents a consent dialog that explains what data will be shared, who it is shared with, and asks for your explicit permission. You may revoke this consent at any time by switching to on-device transcription or removing your API key in Settings.
+
+### How OpenAI handles your data
+
+Audio is processed by OpenAI to generate a text transcription and is not stored by OpenAI after processing. Your OpenAI API key is stored securely on your device using hardware-backed secure storage and is never shared with us.
+
+### On-device alternative
+
+You can use the on-device transcription option, which processes audio entirely on your device using the Whisper AI model. When using on-device mode, **no audio data ever leaves your device**.
+
 ## Data Sharing
 
 **We do not sell your data.**
@@ -54,7 +78,7 @@ We only share data with:
   - **Supabase** — cloud storage for optional account backup
   - **Sentry** — anonymous crash reporting to improve app stability
   - **RevenueCat** — in-app purchase processing and subscription management
-  - **OpenAI** — cloud voice transcription only (if you enable cloud mode; audio is sent to OpenAI's Whisper API and not stored)
+  - **OpenAI** — cloud voice transcription only (if you enable cloud mode and grant consent; see "Third-Party AI Services" above)
   - **Google** — calendar integration (Google Sign-In is used solely for calendar access, not for account creation or login) and on-device OCR (Google ML Kit, no data leaves the device)
   - **Microsoft** — calendar integration only (Microsoft OAuth is used solely for Outlook calendar access)
 - **Legal Requirements:** If required by law
