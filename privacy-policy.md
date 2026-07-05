@@ -62,7 +62,7 @@ Before any audio is sent to OpenAI, the app presents a consent dialog that expla
 
 ### How OpenAI handles your data
 
-Audio is processed by OpenAI to generate a text transcription and is not stored by OpenAI after processing. Your OpenAI API key is stored securely on your device using hardware-backed secure storage and is never shared with us.
+Audio is processed by OpenAI to generate a text transcription. Under OpenAI's API data-usage policy, audio sent to the API is not used to train OpenAI's models and may be retained by OpenAI for up to 30 days for abuse monitoring before being deleted. Your OpenAI API key is stored securely on your device using hardware-backed secure storage and is never shared with us.
 
 ### On-device alternative
 
