@@ -35,8 +35,8 @@ When adding or editing a contact, use the business card scanner to photograph a 
 **How does Calendar Prep work?**
 Connect your Google, Outlook, or Apple calendar in Settings. The app matches meeting attendees to your contacts and shows preparation cards before upcoming meetings. This is a Pro feature.
 
-**How do location reminders work?**
-Add a location to a contact via the Map tab or the contact's detail page, enable geo-reminders in Settings, and you'll get notified when you're nearby.
+**Can I add locations to contacts?**
+Yes. Add a location to a contact via the Map tab or the contact's detail page, and you'll see them pinned on your map.
 
 **Can I import contacts from my phone?**
 Yes. When adding a new contact, tap "Import from Phone" to open the native contact picker and select a contact.
