@@ -27,7 +27,7 @@ Remember Who ("we", "our", or "us") is committed to protecting your privacy. Thi
 - **Voice Transcription:** Convert voice recordings to text (on-device or cloud)
 - **Business Card Scanning:** Extract contact details from business card images (on-device only)
 - **Calendar Prep:** Match calendar attendees to your contacts for meeting preparation
-- **Reminders:** Send birthday, follow-up, and reconnect notifications
+- **Reminders:** Send birthday and follow-up notifications
 - **Cloud Backup:** Sync your data across devices (if enabled)
 - **App Improvement:** Fix bugs and improve performance
 
