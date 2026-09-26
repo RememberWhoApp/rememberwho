@@ -1,8 +1,8 @@
 # Terms of Service
 
-**Last updated:** June 8, 2026
+**Last updated:** September 26, 2026
 
-Welcome to Remember Who. These Terms of Service ("Terms") govern your use of the Remember Who mobile application ("App") provided by Lost Pines Creative LLC ("we", "our", or "us"). By downloading, installing, or using the App, you agree to be bound by these Terms.
+Welcome to Remember Who. These Terms of Service ("Terms") govern your use of the Remember Who mobile application and the Remember Who web portal at app.rememberwho.app (together, the "App") provided by Lost Pines Creative LLC ("we", "our", or "us"). By downloading, installing, or using the App, you agree to be bound by these Terms.
 
 ## 1. Acceptance of Terms
 
@@ -42,31 +42,37 @@ The App, including all content, features, design, code, and branding, is owned b
 
 You retain ownership of all data you enter into the App, including contacts, notes, photos, and recordings. We do not claim any rights to your content. You are solely responsible for the content you store in the App.
 
-## 7. Third-Party Services
+Cloud backups are encrypted on your device with a backup password you choose, which is never sent to us. We cannot recover a lost backup password, and a backup cannot be decrypted without it.
+
+## 7. Pro Features, Free Access, and Subscriptions
+
+New installs include 14 days of access to Pro features at no charge. No payment method is required, nothing is billed, and nothing renews when those days end. Afterwards, Pro features require a subscription or lifetime purchase through your device's app store; the data you created stays available. Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period, and are managed in your app store account settings. See the [EULA](eula) for plan details.
+
+## 8. Third-Party Services
 
 The App may integrate with third-party services (e.g., calendar providers, cloud storage, transcription APIs). Your use of these services is governed by their respective terms and privacy policies. We are not responsible for the practices of third-party services.
 
-## 8. Disclaimers
+## 9. Disclaimers
 
 THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE APP WILL BE UNINTERRUPTED, ERROR-FREE, OR SECURE.
 
-## 9. Limitation of Liability
+## 10. Limitation of Liability
 
 TO THE MAXIMUM EXTENT PERMITTED BY LAW, LOST PINES CREATIVE LLC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS, DATA, OR GOODWILL, ARISING OUT OF OR RELATED TO YOUR USE OF THE APP, REGARDLESS OF THE THEORY OF LIABILITY. OUR TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT YOU PAID FOR THE APP.
 
-## 10. Termination
+## 11. Termination
 
 We may terminate or suspend your access to the App at any time, without notice, for conduct that we believe violates these Terms or is harmful to other users or us. Upon termination, your license to use the App is revoked. Provisions that by their nature should survive termination will survive.
 
-## 11. Changes to These Terms
+## 12. Changes to These Terms
 
 We may update these Terms from time to time. We will notify you of material changes through the App or other reasonable means. Your continued use of the App after changes are posted constitutes acceptance of the updated Terms.
 
-## 12. Governing Law
+## 13. Governing Law
 
 These Terms are governed by and construed in accordance with the laws of the State of Texas, without regard to its conflict of law principles. Any disputes arising under these Terms shall be resolved in the courts located in the State of Texas.
 
-## 13. Contact Us
+## 14. Contact Us
 
 Questions about these Terms? Contact us:
 

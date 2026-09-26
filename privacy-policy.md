@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last updated:** June 22, 2026
+**Last updated:** September 26, 2026
 
 Remember Who ("we", "our", or "us") is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your information.
 
@@ -14,12 +14,13 @@ Remember Who ("we", "our", or "us") is committed to protecting your privacy. Thi
 - **Voice Recordings:** Audio recordings you make for voice notes (processed on-device or via OpenAI Whisper API if cloud transcription is enabled)
 - **Business Card Scans:** Images of business cards you scan (processed on-device using Google ML Kit OCR)
 - **Account Information:** Email address when you create a cloud account (optional)
+- **Phone Contacts:** If you import from your phone's contacts or use Contact Sync, the app reads the contacts you choose from your address book. This happens on your device; contacts are never uploaded unless you back them up
 
 ### Information Collected Automatically
 
-- **Location Data:** When you enable location-based reminders (optional)
+- **Location Data:** When you enable location-based reminders or pin a contact on the map (optional). If you type an address and tap **Find on map**, that address is sent to your phone's built-in geocoding service (Apple on iOS, Google on Android) to place the pin; choosing **Use Current Location** or moving a map pin sends those coordinates to the same service to look up the address. Map images are loaded from OpenFreeMap, which sees the area of the map you view.
 - **Calendar Data:** When you connect calendar integration (optional)
-- **Crash Reports:** Anonymous crash data to improve app stability
+- **Crash & Performance Reports:** Crash reports and sampled performance data (via Sentry) to improve stability. We don't attach your account or contact details to them
 
 ## How We Use Your Information
 
@@ -28,7 +29,7 @@ Remember Who ("we", "our", or "us") is committed to protecting your privacy. Thi
 - **Business Card Scanning:** Extract contact details from business card images (on-device only)
 - **Calendar Prep:** Match calendar attendees to your contacts for meeting preparation
 - **Reminders:** Send birthday and follow-up notifications
-- **Cloud Backup:** Sync your data across devices (if enabled)
+- **Cloud Backup:** Keep an encrypted copy of your data you can restore on another phone or view on the web portal (if enabled)
 - **App Improvement:** Fix bugs and improve performance
 
 ## Data Storage & Security
@@ -36,13 +37,26 @@ Remember Who ("we", "our", or "us") is committed to protecting your privacy. Thi
 ### Local Storage
 
 - All data is stored locally on your device by default
-- Local data is encrypted using industry-standard encryption
+- Phone numbers, emails, notes, birthdays, family details, interaction summaries, transcripts, meeting notes and action items are encrypted on your device with AES-256 before they are stored, using a key kept in your phone's secure hardware-backed storage
+- A contact's display label (usually their name), company, title, location, where you met, tags and social links are stored unencrypted so search works; they are protected by your phone's own encryption
+- Photos, business-card images and voice recordings are stored as files on your device and are protected by your phone's own security; they are not included in cloud backups
 
-### Cloud Storage (Optional)
+### Cloud Backup (Optional)
 
-- Cloud backup is optional and requires account creation
-- Cloud data is encrypted in transit (TLS) and at rest
-- We use Supabase for secure cloud storage
+- Cloud backup is optional and requires creating an account (email and password)
+- Before anything is uploaded, your backup is encrypted **on your device** with AES-256-GCM, using a key derived from a backup password you choose. The backup password is separate from your login password and is **never sent to us**
+- We cannot read your backups, and we cannot recover your backup password — if you lose it, that backup cannot be decrypted
+- Backups include your contacts, notes, interactions, meetings and action items. They are stored with Supabase and transferred over TLS, along with basic details about each backup (size, app version, date). We keep your 5 most recent manual and 3 most recent automatic backups
+- Weekly automatic backup is optional and can be turned off at any time in Settings. To run it, the app keeps your backup password in your phone's secure storage
+- Choose a backup password that's different from your login password
+
+### Web Portal (Optional)
+
+If you have a cloud backup, you can view your contacts read-only in a web browser at app.rememberwho.app. After you sign in with your Remember Who account, your most recent encrypted backup is downloaded and decrypted **in your browser** using your backup password. Your backup password and the decrypted contacts are never sent to us and are not saved; they are cleared when you sign out or close the tab. Your sign-in session is kept in that browser tab until it closes.
+
+When you tap **Open web portal** in the app, our server uses your signed-in account (your email address) to create a single-use sign-in link for your own account. It receives no contact data and never your backup password.
+
+The web portal is hosted by **Vercel**, which processes standard request data (such as IP address and browser type) to serve the site. The portal uses no analytics or tracking.
 
 ## Third-Party AI Services
 
@@ -75,12 +89,16 @@ You can use the on-device transcription option, which processes audio entirely o
 We only share data with:
 
 - **Service Providers:**
-  - **Supabase** — cloud storage for optional account backup
-  - **Sentry** — anonymous crash reporting to improve app stability
-  - **RevenueCat** — in-app purchase processing and subscription management
+  - **Supabase** — account sign-in and storage for your encrypted backups (we cannot read them)
+  - **Vercel** — hosting for the optional web portal (serves the site only; it never receives your backup password or decrypted data)
+  - **Sentry** — crash and performance reporting to improve app stability
+  - **RevenueCat** — in-app purchase processing and subscription management (receives your purchase history and, when you are signed in, your account ID)
   - **OpenAI** — cloud voice transcription only (if you enable cloud mode and grant consent; see "Third-Party AI Services" above)
   - **Google** — calendar integration (Google Sign-In is used solely for calendar access, not for account creation or login) and on-device OCR (Google ML Kit, no data leaves the device)
   - **Microsoft** — calendar integration only (Microsoft OAuth is used solely for Outlook calendar access)
+  - **Apple / Google** — your phone's built-in geocoding service, when you use Find on map, Use Current Location or move a map pin
+  - **OpenFreeMap** — map images (sees your IP address and the map area you view)
+  - **Hugging Face** — download of the on-device transcription model, if you choose on-device transcription (no audio or personal data is sent)
 - **Legal Requirements:** If required by law
 
 ## Your Rights
@@ -89,7 +107,8 @@ You can:
 
 - **Access** your data anytime within the app
 - **Export** your data from Settings
-- **Delete** your account and all cloud data
+- **Delete** your account from Settings: this removes your account, all cloud backups, and that account's contacts on the phone you delete from (see [Delete Your Account](delete-account))
+- **View** your backed-up contacts in a browser through the web portal
 - **Use Locally:** Use the app without creating an account
 
 ## Children's Privacy

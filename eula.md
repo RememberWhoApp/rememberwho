@@ -1,6 +1,6 @@
 # End User License Agreement (EULA)
 
-**Last updated:** June 8, 2026
+**Last updated:** September 26, 2026
 
 This End User License Agreement ("Agreement") is a legal agreement between you ("User") and Lost Pines Creative LLC ("Licensor") for the use of the Remember Who mobile application ("App"). By installing or using the App, you agree to the terms of this Agreement.
 
@@ -15,6 +15,8 @@ The App is available as a free download with optional paid upgrades. Premium fea
 - **Monthly subscription:** $9.99 USD/month
 - **Annual subscription:** $79.99 USD/year
 - **Lifetime purchase:** $149.99 USD (one-time, perpetual access)
+
+New installs include 14 days of access to Pro features at no charge. This is not a subscription trial: no payment method is required, nothing is billed, and nothing renews when those days end. Afterwards, Pro features require one of the plans above; the data you created stays on your device, automatic backups continue, and restoring your own backups remains available.
 
 Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period. You may manage or cancel subscriptions through your device's app store settings. The lifetime purchase grants perpetual access to all Pro features, including future updates, subject to the terms of this Agreement.
 
@@ -35,7 +37,7 @@ The App is licensed, not sold. The Licensor retains all right, title, and intere
 
 ## 5. User Data
 
-All data you create within the App (contacts, notes, photos, recordings) remains your property. The App stores data locally on your device by default. Optional cloud backup features, if enabled, are subject to our [Privacy Policy](privacy-policy).
+All data you create within the App (contacts, notes, photos, recordings) remains your property. The App stores data locally on your device by default. Optional cloud backup and the read-only web portal (app.rememberwho.app), if used, are subject to our [Privacy Policy](privacy-policy). Backups are encrypted with a backup password that is never sent to us; the Licensor cannot recover a lost backup password or decrypt a backup without it.
 
 ## 6. Updates
 

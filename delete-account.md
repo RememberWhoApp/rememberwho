@@ -2,36 +2,36 @@
 
 ## How to Delete Your Account
 
-1. Open the **Remember Who** app
+1. Open the **Remember Who** app and sign in
 2. Go to **Settings** (bottom tab)
-3. Scroll down to the **Account** section
+3. Open **Data & About**
 4. Tap **Delete Account**
-5. Confirm your decision
+5. To keep a copy of your contacts first, tap **Export First**, save the file, then come back and tap **Delete Account** again
+6. Tap **Delete** to confirm
 
 ## What Gets Deleted
 
-When you delete your account, the following data is permanently removed from our servers:
+Deletion happens right away and can't be undone:
 
-- Your cloud account and login credentials
-- All synced contacts and their details
-- Notes, interactions, and conversation history
-- Meeting records and follow-up reminders
-- Backup data stored in the cloud
+- **Your account** and its sign-in (email and password)
+- **All your cloud backups**, and the web portal access that reads them
+- **This account's contacts on the phone you delete from**, including their notes, interactions, meetings, action items, the photos, business-card images and voice recordings you added in the app, and any data you exported to the phone
+- Automatic backup is turned off and the saved backup password is removed from the phone
 
-## What Remains on Your Device
+After deleting, you can keep using Remember Who on that phone without an account: choose **Skip for now - Continue locally**. To bring back contacts you exported, go to **Settings → Data & About → Import Data**.
 
-- Local data remains on your device until you uninstall the app
-- To fully remove all data, uninstall the Remember Who app after deleting your account
+## Other Phones
+
+If you used the same account on another phone, you can no longer sign in there, and the contacts stored on that phone stay on it. To remove them, sign in on that phone and use **Settings → Data & About → Clear All Data** before you delete your account, or uninstall Remember Who there.
 
 ## Data Retention
 
-- Account deletion requests are processed immediately
-- All cloud data is permanently deleted within 30 days
-- Backup copies in our disaster recovery systems are purged within 90 days
+- Your account and backups are deleted immediately
+- Copies in our hosting provider's disaster-recovery backups expire within 90 days
 
 ## Local-Only Users
 
-If you never created a cloud account and used the app in local-only mode, simply uninstall the app to delete all data. There is no server data to delete.
+If you never created an account and used the app without signing in, there is no server data to delete. **Settings → Data & About → Clear All Data** removes your contacts, their photos and recordings, and exported files; uninstalling the app removes everything.
 
 ## Need Help?
 

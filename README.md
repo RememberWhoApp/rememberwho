@@ -8,7 +8,7 @@ A personal relationship management app that helps you remember the important det
 - **Interaction History** - Log calls, meetings, and notes
 - **Smart Reminders** - Birthday reminders and follow-up notifications
 - **Location-Based Reminders** - Get notified when near someone's location
-- **Cloud Backup** - Securely sync across devices (optional)
+- **Cloud Backup** - Encrypted on your phone before upload; restore on a new phone or view in the web portal (optional)
 - **QR Code Sharing** - Easily share your contact info
 
 ## Links
