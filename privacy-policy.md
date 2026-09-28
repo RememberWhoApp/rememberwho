@@ -38,7 +38,8 @@ Remember Who ("we", "our", or "us") is committed to protecting your privacy. Thi
 
 - All data is stored locally on your device by default
 - Phone numbers, emails, websites, social and messaging handles, notes, birthdays, family details, interaction summaries, transcripts, meeting notes and action items are encrypted on your device with AES-256 before they are stored, using a key kept in your phone's secure hardware-backed storage
-- A contact's display label (usually their name), company, title, location, where you met and tags are stored unencrypted so search works; they are protected by your phone's own encryption
+- A contact's display label (usually their name), company, title, location, where you met, interests, tags and map pin are stored unencrypted so search works; they are protected by your phone's own encryption
+- Your own card (My Card) is stored in the app's private storage and protected by your phone's own encryption, not by the app's AES-256 encryption
 - Photos, business-card images and voice recordings are stored as files on your device and are protected by your phone's own security; they are not included in cloud backups
 
 ### Cloud Backup (Optional)
