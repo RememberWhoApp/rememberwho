@@ -15,6 +15,7 @@ Remember Who ("we", "our", or "us") is committed to protecting your privacy. Thi
 - **Business Card Scans:** Images of business cards you scan (processed on-device using Google ML Kit OCR)
 - **Account Information:** Email address when you create a cloud account (optional)
 - **Phone Contacts:** If you import from your phone's contacts or use Contact Sync, the app reads the contacts you choose from your address book. This happens on your device; contacts are never uploaded unless you back them up
+- **Imported Contacts:** If you import a vCard (.vcf) file or your Google Contacts, the app reads the file or your Google contact list on your device and saves only the contacts you choose. It adds new people and fills in details that are missing for people already in the app; it never overwrites what you've entered. Importing from Google Contacts is optional and happens only when you tap it: the app asks Google for read-only access and downloads your contacts directly from Google to your phone. If you haven't connected Google Calendar, access is removed right after the import; if you have, it stays with your calendar connection until you disconnect it. Imported contacts are never uploaded to us unless you back them up (backups are end-to-end encrypted).
 
 ### Information Collected Automatically
 
@@ -95,7 +96,8 @@ We only share data with:
   - **Sentry** — crash and performance reporting to improve app stability
   - **RevenueCat** — in-app purchase processing and subscription management (receives your purchase history and, when you are signed in, your account ID)
   - **OpenAI** — cloud voice transcription only (if you enable cloud mode and grant consent; see "Third-Party AI Services" above)
-  - **Google** — calendar integration (Google Sign-In is used solely for calendar access, not for account creation or login) and on-device OCR (Google ML Kit, no data leaves the device)
+  - **Google** — calendar integration (Google Sign-In is used solely for calendar access and, if you choose, read-only import of your Google Contacts, not for account creation or login) and on-device OCR (Google ML Kit, no data leaves the device)
+    - Remember Who's use and transfer of information received from Google APIs adheres to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.
   - **Microsoft** — calendar integration only (Microsoft OAuth is used solely for Outlook calendar access)
   - **Apple / Google** — your phone's built-in geocoding service, when you use Find on map, Use Current Location or move a map pin
   - **OpenFreeMap** — map images (sees your IP address and the map area you view)
