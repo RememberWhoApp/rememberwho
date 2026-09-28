@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last updated:** September 26, 2026
+**Last updated:** September 28, 2026
 
 Remember Who ("we", "our", or "us") is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your information.
 
@@ -37,8 +37,8 @@ Remember Who ("we", "our", or "us") is committed to protecting your privacy. Thi
 ### Local Storage
 
 - All data is stored locally on your device by default
-- Phone numbers, emails, notes, birthdays, family details, interaction summaries, transcripts, meeting notes and action items are encrypted on your device with AES-256 before they are stored, using a key kept in your phone's secure hardware-backed storage
-- A contact's display label (usually their name), company, title, location, where you met, tags and social links are stored unencrypted so search works; they are protected by your phone's own encryption
+- Phone numbers, emails, websites, social and messaging handles, notes, birthdays, family details, interaction summaries, transcripts, meeting notes and action items are encrypted on your device with AES-256 before they are stored, using a key kept in your phone's secure hardware-backed storage
+- A contact's display label (usually their name), company, title, location, where you met and tags are stored unencrypted so search works; they are protected by your phone's own encryption
 - Photos, business-card images and voice recordings are stored as files on your device and are protected by your phone's own security; they are not included in cloud backups
 
 ### Cloud Backup (Optional)
